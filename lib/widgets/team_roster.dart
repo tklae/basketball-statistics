@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../routes.dart';
+import 'bottom_navigation.dart';
 
 class TeamRosterWidget extends StatelessWidget {
   final _biggerFont = const TextStyle(fontSize: 18.0);
@@ -17,6 +18,7 @@ class TeamRosterWidget extends StatelessWidget {
 //          IconButton(icon: Icon(Icons.list)),
 //        ],
       ),
+      bottomNavigationBar: BottomNavigation(),
       body: _buildPlayerList(context),
       floatingActionButton: _addPlayersButton(context),
     );

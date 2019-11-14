@@ -26,6 +26,7 @@ dependencies:
   equatable: ^0.6.1
   provider: ^3.1.0
   kt_dart: ^0.6.2
+  material_design_icons_flutter: ^3.3.4595
 
 dev_dependencies:
   flutter_test:
