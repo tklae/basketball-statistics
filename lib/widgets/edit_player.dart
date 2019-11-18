@@ -70,10 +70,10 @@ class EditPlayerState extends State<EditPlayer> {
                           _formKey.currentState.save();
                           TeamRoster _teamRoster = Provider.of<TeamRoster>(context);
                           _teamRoster.replace(_originalPlayer, new Player(name: _editedPlayerName, mmbNumber: _editedPlayerMmbNumber));
-                          Scaffold.of(context)
-                            ..removeCurrentSnackBar()
-                            ..showSnackBar(
-                                SnackBar(content: Text("Player edited")));
+//                          Scaffold.of(context)
+//                            ..removeCurrentSnackBar()
+//                            ..showSnackBar(
+//                                SnackBar(content: Text("Player edited")));
                           Navigator.pop(context);
                         }
                       },
