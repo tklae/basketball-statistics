@@ -21,7 +21,8 @@ class EditPlayerState extends State<EditPlayer> {
 
   Widget _editPlayerForm() {
     final Player _originalPlayer = ModalRoute.of(context).settings.arguments;
-    String _editedPlayerName = _originalPlayer.name;
+    String _editedPlayerFirstName = _originalPlayer.firstName;
+    String _editedPlayerLastName = _originalPlayer.lastName;
     String _editedPlayerMmbNumber = _originalPlayer.mmbNumber;
 
     return Form(
@@ -34,18 +35,34 @@ class EditPlayerState extends State<EditPlayer> {
               child: Column(
                 children: <Widget>[
                   TextFormField(
-                    initialValue: _editedPlayerName,
+                    initialValue: _editedPlayerFirstName,
                     decoration: InputDecoration(
                         contentPadding: const EdgeInsets.all(16.0),
-                        labelText: "Player name",
-                        hintText: "Tragic Bronson"),
+                        labelText: "First name",
+                        hintText: "Tragic"),
                     validator: (value) {
                       if (value.isEmpty) {
-                        return 'Please enter a player name';
+                        return 'Please enter a first name';
                       }
                       return null;
                     },
-                    onSaved: (val) => setState(() => _editedPlayerName = val),
+                    onSaved: (val) =>
+                        setState(() => _editedPlayerFirstName = val),
+                  ),
+                  TextFormField(
+                    initialValue: _editedPlayerLastName,
+                    decoration: InputDecoration(
+                        contentPadding: const EdgeInsets.all(16.0),
+                        labelText: "Last name",
+                        hintText: "Bronson"),
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Please enter a last name';
+                      }
+                      return null;
+                    },
+                    onSaved: (val) =>
+                        setState(() => _editedPlayerLastName = val),
                   ),
                   TextFormField(
                     initialValue: _editedPlayerMmbNumber,
@@ -53,13 +70,8 @@ class EditPlayerState extends State<EditPlayer> {
                         contentPadding: const EdgeInsets.all(16.0),
                         labelText: "MMB Number",
                         hintText: "001"),
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return "Please enter the player's MMB number";
-                      }
-                      return null;
-                    },
-                    onSaved: (val) => setState(() => _editedPlayerMmbNumber = val),
+                    onSaved: (val) =>
+                        setState(() => _editedPlayerMmbNumber = val),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16),
@@ -69,7 +81,12 @@ class EditPlayerState extends State<EditPlayer> {
                         if (_formKey.currentState.validate()) {
                           _formKey.currentState.save();
                           Team _teamRoster = Provider.of<Team>(context);
-                          _teamRoster.replace(_originalPlayer, new Player(name: _editedPlayerName, mmbNumber: _editedPlayerMmbNumber));
+                          _teamRoster.replace(
+                              _originalPlayer,
+                              new Player(
+                                  firstName: _editedPlayerFirstName,
+                                  lastName: _editedPlayerLastName,
+                                  mmbNumber: _editedPlayerMmbNumber));
 //                          Scaffold.of(context)
 //                            ..removeCurrentSnackBar()
 //                            ..showSnackBar(

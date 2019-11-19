@@ -10,7 +10,8 @@ class AddPlayer extends StatefulWidget {
 
 class AddPlayerState extends State<AddPlayer> {
   final _formKey = GlobalKey<FormState>();
-  String _playerName;
+  String _playerFirstName;
+  String _playerLastName;
   String _playerMmbNumber;
 
   @override
@@ -35,27 +36,34 @@ class AddPlayerState extends State<AddPlayer> {
                     autofocus: true,
                     decoration: InputDecoration(
                         contentPadding: const EdgeInsets.all(16.0),
-                        labelText: "Player name",
-                        hintText: "Tragic Bronson"),
+                        labelText: "First name",
+                        hintText: "Tragic"),
                     validator: (value) {
                       if (value.isEmpty) {
-                        return 'Please enter a player name';
+                        return 'Please enter a first name';
                       }
                       return null;
                     },
-                    onChanged: (val) => setState(() => _playerName = val),
+                    onChanged: (val) => setState(() => _playerFirstName = val),
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                        contentPadding: const EdgeInsets.all(16.0),
+                        labelText: "Last name",
+                        hintText: "Bronson"),
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Please enter a last name';
+                      }
+                      return null;
+                    },
+                    onChanged: (val) => setState(() => _playerLastName = val),
                   ),
                   TextFormField(
                     decoration: InputDecoration(
                         contentPadding: const EdgeInsets.all(16.0),
                         labelText: "MMB Number",
                         hintText: "001"),
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return "Please enter the player's MMB number";
-                      }
-                      return null;
-                    },
                     onChanged: (val) => setState(() => _playerMmbNumber = val),
                   ),
                   Padding(
@@ -65,7 +73,10 @@ class AddPlayerState extends State<AddPlayer> {
                       onPressed: () {
                         if (_formKey.currentState.validate()) {
                           var teamRoster = Provider.of<Team>(context);
-                          teamRoster.add(Player(name: _playerName, mmbNumber: _playerMmbNumber));
+                          teamRoster.add(Player(
+                              firstName: _playerFirstName,
+                              lastName: _playerLastName,
+                              mmbNumber: _playerMmbNumber));
                           Navigator.pop(context);
                         }
                       },

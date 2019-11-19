@@ -43,11 +43,11 @@ class TeamRosterWidget extends StatelessWidget {
   Widget _buildRow(BuildContext context, Player player) {
     return ListTile(
         title: Text(
-          player.name,
+          "${player.firstName} ${player.lastName}",
           style: _biggerFont,
         ),
         dense: true,
-        subtitle: Text(player.mmbNumber),
+        subtitle: player.mmbNumber != null ? Text(player.mmbNumber) : null,
         leading: Icon(Icons.person),
         trailing: IconButton(
           disabledColor: Colors.green,
@@ -72,20 +72,4 @@ class TeamRosterWidget extends StatelessWidget {
       foregroundColor: Colors.black,
     );
   }
-
-//  _waitForAddedPlayer(BuildContext context) async {
-//    await Navigator.pushNamed(context, ROUTE_ADD_PLAYER);
-//    Scaffold.of(context)
-//      ..removeCurrentSnackBar()
-//      ..showSnackBar(
-//          SnackBar(content: Text("Player added")));
-//  }
-
-//  _waitForEditedPlayer(BuildContext context, Player player) async {
-//    Navigator.pushNamed(context, ROUTE_EDIT_PLAYER, arguments: player);
-//    Scaffold.of(context)
-//      ..removeCurrentSnackBar()
-//      ..showSnackBar(
-//          SnackBar(content: Text("Player edited")));
-//  }
 }

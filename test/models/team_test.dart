@@ -14,7 +14,7 @@ void main() {
   test("should replace player", () {
     var teamRoster = Team();
     var originalPlayer = Player.example();
-    var replacement = Player(name: "Wiedeli", mmbNumber: "Dudeli");
+    var replacement = Player(firstName: "Wiedeli", mmbNumber: "Dudeli");
 
     teamRoster.add(originalPlayer);
     teamRoster.replace(originalPlayer, replacement);

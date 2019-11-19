@@ -8,7 +8,7 @@ void main() {
     });
     test("should determine that it's not the example player", () {
       final _player =
-          Player(name: "not the example player", mmbNumber: "someNumber");
+          Player(firstName: "not the example player", lastName: "lastName", mmbNumber: "someNumber");
       expect(_player.isExamplePlayer(), false);
     });
   });

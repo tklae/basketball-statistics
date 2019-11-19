@@ -1,39 +1,29 @@
 import 'package:equatable/equatable.dart';
 
 class Player extends Equatable {
-  final String name, mmbNumber;
+  final String firstName, lastName, mmbNumber;
 
-  Player({this.name, this.mmbNumber});
+  Player({this.firstName, this.lastName, this.mmbNumber});
 
   Player.example()
-      : name = 'Hans Mustermann',
+      : firstName = 'Hans',
+        lastName = 'Mustermann',
         mmbNumber = '001';
 
   Player.clone(Player other)
-      : name = other.name,
+      : firstName = other.firstName,
+        lastName = other.lastName,
         mmbNumber = other.mmbNumber;
 
   bool isExamplePlayer() {
-    return this == Player.example();
+    return Player.example() == this;
   }
 
   @override
-  List<Object> get props => [name, mmbNumber];
+  List<Object> get props => [firstName, lastName, mmbNumber];
 
   @override
   String toString() {
-    return 'Player{name: $name, mmbNumber: $mmbNumber}';
+    return 'Player{firstName: $firstName, lastName: $lastName, mmbNumber: $mmbNumber}';
   }
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      super == other &&
-          other is Player &&
-          runtimeType == other.runtimeType &&
-          name == other.name &&
-          mmbNumber == other.mmbNumber;
-
-  @override
-  int get hashCode => super.hashCode ^ name.hashCode ^ mmbNumber.hashCode;
 }
