@@ -1,5 +1,5 @@
 import 'package:basketball_statistics/models/player.dart';
-import 'package:basketball_statistics/models/team_roster.dart';
+import 'package:basketball_statistics/models/team.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -64,7 +64,7 @@ class AddPlayerState extends State<AddPlayer> {
                       color: Colors.orange,
                       onPressed: () {
                         if (_formKey.currentState.validate()) {
-                          var teamRoster = Provider.of<TeamRoster>(context);
+                          var teamRoster = Provider.of<Team>(context);
                           teamRoster.add(Player(name: _playerName, mmbNumber: _playerMmbNumber));
                           Navigator.pop(context);
                         }

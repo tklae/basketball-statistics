@@ -1,10 +1,10 @@
 import 'package:basketball_statistics/models/player.dart';
-import 'package:basketball_statistics/models/team_roster.dart';
+import 'package:basketball_statistics/models/team.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test("should add player", () {
-    var teamRoster = TeamRoster();
+    var teamRoster = Team();
     expect(teamRoster.players.length, 0);
 
     teamRoster.add(Player.example());
@@ -12,7 +12,7 @@ void main() {
   });
 
   test("should replace player", () {
-    var teamRoster = TeamRoster();
+    var teamRoster = Team();
     var originalPlayer = Player.example();
     var replacement = Player(name: "Wiedeli", mmbNumber: "Dudeli");
 
@@ -24,6 +24,6 @@ void main() {
   });
 
   test("list of players should not be modifiable from the outside", () {
-    expect(() => TeamRoster().players.add(Player.example()), throwsUnsupportedError);
+    expect(() => Team().players.add(Player.example()), throwsUnsupportedError);
   });
 }

@@ -1,5 +1,5 @@
 import 'package:basketball_statistics/models/player.dart';
-import 'package:basketball_statistics/models/team_roster.dart';
+import 'package:basketball_statistics/models/team.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -68,7 +68,7 @@ class EditPlayerState extends State<EditPlayer> {
                       onPressed: () {
                         if (_formKey.currentState.validate()) {
                           _formKey.currentState.save();
-                          TeamRoster _teamRoster = Provider.of<TeamRoster>(context);
+                          Team _teamRoster = Provider.of<Team>(context);
                           _teamRoster.replace(_originalPlayer, new Player(name: _editedPlayerName, mmbNumber: _editedPlayerMmbNumber));
 //                          Scaffold.of(context)
 //                            ..removeCurrentSnackBar()

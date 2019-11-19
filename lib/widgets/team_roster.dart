@@ -1,5 +1,5 @@
 import 'package:basketball_statistics/models/player.dart';
-import 'package:basketball_statistics/models/team_roster.dart';
+import 'package:basketball_statistics/models/team.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,7 +25,7 @@ class TeamRosterWidget extends StatelessWidget {
   }
 
   Widget _buildPlayerList(BuildContext context) {
-    TeamRoster _teamRoster = Provider.of<TeamRoster>(context);
+    Team _teamRoster = Provider.of<Team>(context);
     final _playerList = _teamRoster.players.length > 0
         ? _teamRoster.players
         : [Player.example()];

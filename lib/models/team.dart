@@ -3,7 +3,7 @@ import 'dart:collection';
 import 'package:basketball_statistics/models/player.dart';
 import 'package:flutter/foundation.dart';
 
-class TeamRoster with ChangeNotifier {
+class Team with ChangeNotifier {
   List<Player> _players = [];
 
   UnmodifiableListView<Player> get players => UnmodifiableListView(_players);
@@ -21,7 +21,7 @@ class TeamRoster with ChangeNotifier {
 
   @override
   bool operator ==(Object other) =>
-      other is TeamRoster &&
+      other is Team &&
           runtimeType == other.runtimeType &&
           listEquals(_players, other._players);
 

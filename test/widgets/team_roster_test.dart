@@ -1,4 +1,4 @@
-import 'package:basketball_statistics/models/team_roster.dart';
+import 'package:basketball_statistics/models/team.dart';
 import 'package:basketball_statistics/widgets/team_roster.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -9,7 +9,7 @@ void main() {
   Widget createWidgetForTesting(Widget child){
     return MultiProvider(
       providers: [
-            ChangeNotifierProvider(builder: (context) => TeamRoster()),
+            ChangeNotifierProvider(builder: (context) => Team()),
       ],
       child:
      MaterialApp(

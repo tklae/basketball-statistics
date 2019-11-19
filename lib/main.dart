@@ -5,7 +5,7 @@ import 'package:basketball_statistics/widgets/team_roster.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'models/team_roster.dart';
+import 'models/team.dart';
 
 void main() {
   runApp(BasketballStatistics());
@@ -16,7 +16,7 @@ class BasketballStatistics extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
-          ChangeNotifierProvider(builder: (context) => TeamRoster()),
+          ChangeNotifierProvider(builder: (context) => Team()),
         ],
         child: MaterialApp(
           title: 'Basketball Statistics',
